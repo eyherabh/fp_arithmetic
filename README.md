@@ -2,7 +2,7 @@
 A collection of comments on floating-point arithmetic (e.g. rounding in GCC) for future reference to myself that may also be useful for others.
 
 ## Floating-point rounding and GCC
-Discrepancies in floating-point rounding between the IEEE and GCC have been known for over a decade [1], yet they continue to give rise to blogs and discussions ([2][2],[3]). All of them contribute to create awareness of an issue that even well-seasoned developers might ignore, but some seem to only insist in points that have already been addressed. This is the case of regarding the fact that GCC may not round to the nearest representable value as a bug [2]. Many explanations have been given for this discrepancy, but I have never seen any mention to the C standard. Turns out that the C standard specifically states that
+Discrepancies in floating-point rounding between the IEEE and GCC have been known for over a decade [1], yet they continue to give rise to blogs and discussions [2,3]. All of them contribute to create awareness of an issue that even well-seasoned developers might ignore, but some seem to only insist in points that have already been addressed. This is the case of regarding the fact that GCC may not round to the nearest representable value as a bug [2]. Many explanations have been given for this discrepancy, but I have never seen any mention to the C standard. Turns out that the C standard specifically states that
 
 > For decimal floating constants, and also for hexadecimal floating constants when FLT_RADIX is not a power of 2, the result is either the nearest representable value, or the larger or smaller representable value immediately adjacent to the nearest representable value, chosen in an implementation-defined manner
 
