@@ -7,13 +7,19 @@ Discrepancies in floating-point rounding between the IEEE and GCC have been know
 > For decimal floating constants, and also for hexadecimal floating constants when FLT_RADIX is not a power of 2, the result is either the nearest representable value, or the larger or smaller representable value immediately adjacent to the nearest representable value, chosen in an implementation-defined manner
 
 Contrary to [2], the C standard does not guarantee that 
-```0.50178230318 = 4519653187245114.50011795456 * 2 ** -53```
+```
+0.50178230318 = 4519653187245114.50011795456 * 2 ** -53
+```
 will be represented as 
-```4519653187245115  * 2 ** -53```
-but allows it to be represented as one of the following values
-```4519653187245114  * 2 ** -53
+```
 4519653187245115  * 2 ** -53
-4519653187245116  * 2 ** -53```
+```
+but allows it to be represented as one of the following values
+```
+4519653187245114  * 2 ** -53
+4519653187245115  * 2 ** -53
+4519653187245116  * 2 ** -53
+```
 in an implementation defined manner, thus letting GCC define how it does it. In addition, rounding to the nearest integer need not always be the best as [2] states but depends on the application. Finally, the problem is not limited to GCC [4]. 
 
 Whether a bug or not and who the culprit is in anyone's view, this discrepancy an be exploited in very interesting ways, as discussed in [3]. 
